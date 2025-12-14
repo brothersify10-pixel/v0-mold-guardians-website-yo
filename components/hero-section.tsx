@@ -1,88 +1,72 @@
-import { Shield, Award, Clock, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ChevronRight } from "lucide-react"
 
-export function HeroSection() {
-  const features = [
-    { icon: Clock, label: "Fast Response" },
-    { icon: Award, label: "Certified" },
-    { icon: Users, label: "Family-Owned" },
-    { icon: Shield, label: "30+ Years" },
-  ]
+interface HeroSectionProps {
+  onBookInspection: () => void
+}
 
+export function HeroSection({ onBookInspection }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-charcoal to-background" />
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
-      </div>
+    <section
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden parallax"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/4099260/pexels-photo-4099260.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2">
-              <Shield className="w-4 h-4 text-primary" />
-              <span className="text-primary text-sm font-medium">Licensed, Insured & Certified</span>
+          <div className="flex-1 text-center lg:text-left space-y-6 max-w-2xl">
+            <div className="inline-block">
+              <p className="text-[#FFC107] text-sm font-semibold uppercase tracking-widest">
+                Residential Services
+              </p>
+              <div className="w-full h-1 bg-[#FFC107] mt-1"></div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-              Create a Healthier Home with <span className="text-primary">Professional Mold Removal</span> & Remediation
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight">
+              Mold Removal and Remediation
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Protect your family's health and your home's value with our comprehensive mold inspection and removal
-              services. Serving the Barrie area for over 30 years.
-            </p>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap gap-3">
-              {features.map((feature) => (
-                <div key={feature.label} className="flex items-center gap-2 bg-charcoal-light rounded-full px-4 py-2">
-                  <feature.icon className="w-4 h-4 text-primary" />
-                  <span className="text-foreground text-sm font-medium">{feature.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-8 py-6"
-              >
-                Book Inspection
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-lg px-8 py-6 bg-transparent"
-              >
-                Call 1-800-555-5555
-              </Button>
-            </div>
+            <Button
+              onClick={onBookInspection}
+              size="lg"
+              className="bg-[#FFC107] text-[#1A1A1A] hover:bg-[#FFC107]/90 font-bold text-lg px-10 py-7 group"
+            >
+              BOOK INSPECTION
+              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
 
-          {/* Right Content - Promo Badge */}
-          <div className="flex justify-center lg:justify-end">
+          {/* Right Content - Starburst Badge */}
+          <div className="flex-shrink-0">
             <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-primary/30 rounded-3xl blur-2xl scale-110" />
+              {/* Starburst Background */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80">
+                {/* Star burst effect */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative w-64 h-64 md:w-72 md:h-72">
+                    {/* Black circle with border */}
+                    <div className="absolute inset-0 bg-[#1A1A1A] rounded-full border-8 border-[#FFC107] shadow-2xl flex items-center justify-center p-8">
+                      <div className="text-center space-y-2">
+                        <p className="text-[#FFC107] font-black text-3xl md:text-4xl leading-tight">
+                          GET 50% OFF
+                        </p>
+                        <p className="text-white font-bold text-xl md:text-2xl leading-tight">
+                          AN INSPECTION
+                        </p>
+                        <p className="text-[#FFC107] font-extrabold text-2xl md:text-3xl">
+                          TODAY!
+                        </p>
+                      </div>
+                    </div>
 
-              {/* Badge */}
-              <div className="relative bg-gradient-to-br from-primary via-primary to-gold-dark rounded-3xl p-8 md:p-12 border-4 border-primary/50 shadow-2xl">
-                <div className="text-center space-y-4">
-                  <p className="text-primary-foreground/80 font-semibold text-lg uppercase tracking-wider">
-                    Limited Time Offer
-                  </p>
-                  <div className="space-y-1">
-                    <p className="text-primary-foreground font-bold text-2xl">GET</p>
-                    <p className="text-primary-foreground font-black text-7xl md:text-8xl leading-none">50%</p>
-                    <p className="text-primary-foreground font-bold text-2xl">OFF</p>
-                  </div>
-                  <div className="pt-4 border-t border-primary-foreground/20">
-                    <p className="text-primary-foreground font-bold text-xl">AN INSPECTION</p>
-                    <p className="text-primary-foreground/80 font-semibold">TODAY!</p>
+                    {/* Rotating glow effect */}
+                    <div className="absolute inset-0 bg-[#FFC107]/20 rounded-full blur-2xl animate-pulse" />
                   </div>
                 </div>
               </div>

@@ -1,74 +1,44 @@
-import { Users, Award, Heart, MapPin, Clock, ShieldCheck } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Check } from "lucide-react"
 
 export function WhyHireUsSection() {
   const reasons = [
-    {
-      icon: Users,
-      title: "Family Owned",
-      description: "A trusted family business dedicated to your home's safety",
-    },
-    {
-      icon: Award,
-      title: "30+ Years Experience",
-      description: "Decades of expertise in mold remediation and prevention",
-    },
-    {
-      icon: Heart,
-      title: "Realtors Love Us",
-      description: "The go-to choice for real estate professionals",
-    },
-    {
-      icon: MapPin,
-      title: "Local Experts",
-      description: "We know the unique challenges of homes in our area",
-    },
-    {
-      icon: Clock,
-      title: "Fast Response Time",
-      description: "Quick assessment and immediate action when you need it",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Licensed & Certified",
-      description: "Fully licensed, insured, and professionally certified",
-    },
+    "Family owned",
+    "30+ Years experience",
+    "Realtors love us",
+    "We are local",
+    "Quick response times",
+    "Licensed, insured & certified",
   ]
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
+    <section id="about" className="py-20 md:py-28 bg-[#F5F5F5]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-primary/10 border border-primary/30 rounded-full px-4 py-2 text-primary text-sm font-semibold mb-6">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            Why Hire <span className="text-primary">Mold Guardians?</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Trust your home to the experts who have been protecting families for over three decades.
-          </p>
-        </div>
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Left - Large Image */}
+          <div
+            className="h-[400px] md:h-[500px] rounded-2xl bg-cover bg-center shadow-2xl"
+            style={{
+              backgroundImage: "url('https://images.pexels.com/photos/5998697/pexels-photo-5998697.jpeg?auto=compress&cs=tinysrgb&w=1280')",
+            }}
+          />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="group bg-charcoal rounded-2xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]"
-            >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <reason.icon className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">{reason.title}</h3>
-              <p className="text-muted-foreground">{reason.description}</p>
+          {/* Right - Content */}
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-tight">
+              Protecting Families & Pets Since 1994
+            </h2>
+
+            <div className="space-y-4">
+              {reasons.map((reason, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#FFC107] flex items-center justify-center">
+                    <Check className="w-5 h-5 text-[#1A1A1A]" />
+                  </div>
+                  <span className="text-[#2D2D2D] text-lg font-semibold">{reason}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-8">
-            Request Inspection
-          </Button>
+          </div>
         </div>
       </div>
     </section>

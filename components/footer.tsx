@@ -1,60 +1,64 @@
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
+import Image from "next/image"
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Rss } from "lucide-react"
 
 export function Footer() {
-  const quickLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Why Us", href: "#about" },
+  const servicesLinks = [
+    { label: "All Services", href: "#services" },
+    { label: "Mold Removal", href: "#services" },
+    { label: "Mold Damage", href: "#services" },
     { label: "What Is Mold", href: "#mold-info" },
-    { label: "Contact", href: "#contact" },
   ]
 
-  const services = ["Mold Removal", "Moisture Control", "Water Damage Restoration", "Mold Inspection"]
+  const companyLinks = [
+    { label: "About Us", href: "#about" },
+    { label: "How It Works", href: "#" },
+    { label: "Pricing", href: "#quote" },
+    { label: "Contact Us", href: "#contact" },
+  ]
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Rss, href: "#", label: "RSS" },
   ]
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-[#2D2D2D] text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
+          {/* Column 1 - Contact Info */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">MG</span>
+            <h3 className="text-[#FFC107] text-xl font-bold uppercase mb-4">Contact</h3>
+            <div className="space-y-4">
+              <a
+                href="tel:1-800-555-5555"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#FFC107] transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                <span>1-800-555-5555</span>
+              </a>
+              <a
+                href="mailto:info@moldguardians.com"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#FFC107] transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+                <span>info@moldguardians.com</span>
+              </a>
+              <div className="flex items-start gap-3 text-gray-300">
+                <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
+                <span>123 Nowhere St.<br />Barrie, ON L4N 7G8</span>
               </div>
-              <span className="text-xl font-bold text-foreground">
-                Mold<span className="text-primary">Guardians</span>
-              </span>
-            </div>
-            <p className="text-muted-foreground">
-              Professional mold remediation services protecting families and homes for over 30 years.
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-charcoal flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2 - Services */}
           <div>
-            <h4 className="text-foreground font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              {quickLinks.map((link) => (
+            <h3 className="text-[#FFC107] text-xl font-bold uppercase mb-4">Services</h3>
+            <ul className="space-y-3">
+              {servicesLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href={link.href} className="text-gray-300 hover:text-[#FFC107] transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -62,59 +66,47 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Column 3 - Company */}
           <div>
-            <h4 className="text-foreground font-bold text-lg mb-6">Services</h4>
-            <ul className="space-y-4">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-muted-foreground">{service}</span>
+            <h3 className="text-[#FFC107] text-xl font-bold uppercase mb-4">Company</h3>
+            <ul className="space-y-3">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-gray-300 hover:text-[#FFC107] transition-colors">
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-foreground font-bold text-lg mb-6">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">123 Nowhere St., Barrie, ON L4N 7G8</span>
-              </li>
-              <li>
+          {/* Column 4 - Logo & Social */}
+          <div className="space-y-6">
+            <Image
+              src="/logo.jpeg"
+              alt="MoldGuardians Logo"
+              width={200}
+              height={70}
+              className="h-16 w-auto object-contain"
+            />
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
                 <a
-                  href="tel:1-800-555-5555"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center text-[#FFC107] hover:bg-[#FFC107] hover:text-[#1A1A1A] transition-all duration-300"
                 >
-                  <Phone className="w-5 h-5 text-primary" />
-                  1-800-555-5555
+                  <social.icon className="w-5 h-5" />
                 </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@moldguardians.com"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Mail className="w-5 h-5 text-primary" />
-                  info@moldguardians.com
-                </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">© 2025 MoldGuardians – All Rights Reserved</p>
-          <div className="flex gap-6">
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </a>
-          </div>
+        <div className="border-t border-gray-600 mt-12 pt-8 text-center">
+          <p className="text-gray-400 text-sm">© 2025 MoldGuardians - All Rights Reserved</p>
         </div>
       </div>
     </footer>

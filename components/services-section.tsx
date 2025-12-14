@@ -1,76 +1,58 @@
-import { Droplets, Shield, Home } from "lucide-react"
-
 export function ServicesSection() {
   const services = [
     {
-      icon: Shield,
-      title: "Mold Removal & Remediation",
-      description:
-        "Complete mold removal using industry-leading techniques. We eliminate mold at its source and prevent future growth.",
-      areas: ["Basement", "Attic", "Crawl Space"],
+      image: "https://images.pexels.com/photos/5997993/pexels-photo-5997993.jpeg?auto=compress&cs=tinysrgb&w=800",
+      title: "ATTICS",
+      description: "Complete attic mold inspection and remediation services",
     },
     {
-      icon: Droplets,
-      title: "Moisture Control & Prevention",
-      description:
-        "Identify and eliminate moisture sources that cause mold growth. Comprehensive solutions for lasting protection.",
-      areas: ["Waterproofing", "Ventilation", "Dehumidification"],
+      image: "https://images.pexels.com/photos/1893229/pexels-photo-1893229.jpeg?auto=compress&cs=tinysrgb&w=800",
+      title: "WINDOWS",
+      description: "Window moisture and mold damage solutions",
     },
     {
-      icon: Home,
-      title: "Water Damage Restoration",
-      description: "Fast response to water damage emergencies. We restore your home and prevent mold from taking hold.",
-      areas: ["Flood Cleanup", "Leak Repair", "Structural Drying"],
+      image: "https://images.pexels.com/photos/11899171/pexels-photo-11899171.jpeg?auto=compress&cs=tinysrgb&w=800",
+      title: "CRAWL SPACE",
+      description: "Comprehensive crawl space mold removal",
+    },
+    {
+      image: "https://images.pexels.com/photos/4092030/pexels-photo-4092030.jpeg?auto=compress&cs=tinysrgb&w=800",
+      title: "BASEMENTS",
+      description: "Basement waterproofing and mold prevention",
     },
   ]
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-charcoal">
+    <section id="services" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-primary/10 border border-primary/30 rounded-full px-4 py-2 text-primary text-sm font-semibold mb-6">
-            Our Services
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
-            Professional <span className="text-primary">Mold Solutions</span>
+        <div className="text-center mb-16 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-6 leading-tight">
+            Create a Healthier Home with Our Mold Removal & Remediation Services
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Comprehensive services to protect your home and family from the dangers of mold.
+          <p className="text-[#2D2D2D] text-lg leading-relaxed">
+            With extensive experience and expert teams, MoldGuardians specializes in eliminating harmful mold from your home.
+            We restore spore counts to safe levels, ensuring your living space is healthy once more.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-background rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300"
+              className="group flex flex-col items-center text-center space-y-4"
             >
-              {/* Service Header */}
-              <div className="bg-gradient-to-r from-primary to-gold-dark p-6">
-                <div className="w-12 h-12 rounded-xl bg-primary-foreground/20 flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-bold text-primary-foreground">{service.title}</h3>
-              </div>
+              {/* Circular Image Container */}
+              <div
+                className="circle-image cursor-pointer"
+                style={{
+                  backgroundImage: `url(${service.image})`
+                }}
+              />
 
-              {/* Service Content */}
-              <div className="p-6 space-y-4">
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-
-                <div className="pt-4 border-t border-border">
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Service Areas</p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.areas.map((area, areaIndex) => (
-                      <span
-                        key={areaIndex}
-                        className="bg-charcoal text-foreground text-xs font-medium px-3 py-1.5 rounded-full border border-border"
-                      >
-                        {area}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-[#1A1A1A] uppercase tracking-wide">
+                {service.title}
+              </h3>
             </div>
           ))}
         </div>

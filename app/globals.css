@@ -81,7 +81,7 @@
 }
 
 @theme inline {
-  --font-sans: "Inter", "Inter Fallback", sans-serif;
+  --font-sans: "Montserrat", "Montserrat Fallback", sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -119,11 +119,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Custom brand colors */
+  /* Custom brand colors - MoldGuardians */
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
   --color-charcoal: var(--charcoal);
   --color-charcoal-light: var(--charcoal-light);
+  --color-yellow: #FFC107;
+  --color-black: #1A1A1A;
+  --color-dark-gray: #2D2D2D;
 }
 
 @layer base {
@@ -137,4 +140,91 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom Brand Colors - MoldGuardians */
+:root {
+  --primary-yellow: #FFC107;
+  --dark-yellow: #E5AC00;
+  --black: #1A1A1A;
+  --dark-gray: #2D2D2D;
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --overlay-dark: rgba(0,0,0,0.7);
+  --overlay-light: rgba(0,0,0,0.5);
+}
+
+/* Animations & Effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button hover effects */
+.btn-hover {
+  transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* Image hover zoom */
+.image-zoom {
+  transition: transform 0.3s ease;
+}
+
+.image-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* Parallax backgrounds */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Circle image hover */
+.circle-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.circle-image:hover {
+  border-color: #FFC107;
+  transform: scale(1.05);
+}
+
+/* Testimonial photo */
+.testimonial-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FFC107;
 }
