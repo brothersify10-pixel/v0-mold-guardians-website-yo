@@ -60,14 +60,21 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="py-20 md:py-28 relative bg-[#F5F5F5]"
+      className="py-20 md:py-28 relative bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] overflow-hidden"
       ref={sectionRef}
     >
-      <div className="container mx-auto px-4">
+      {/* Background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float blur-sm" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float-slow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-[#FFC107]/15 rounded-full animate-float blur-sm" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 uppercase tracking-wide">
             HAPPY CUSTOMERS
           </h2>
           <div className="w-32 h-1 bg-[#FFC107] mx-auto" />
@@ -75,7 +82,7 @@ export function TestimonialsSection() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Testimonial Card */}
-          <div className={`bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-500 ${
+          <div className={`bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/10 hover:border-[#FFC107]/50 hover:shadow-2xl hover:shadow-[#FFC107]/20 hover:scale-105 transition-all duration-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             {/* Photo */}
@@ -100,13 +107,13 @@ export function TestimonialsSection() {
             </div>
 
             {/* Testimonial Text */}
-            <p key={`text-${currentIndex}`} className="text-[#2D2D2D] text-lg md:text-xl leading-relaxed text-center mb-8 italic animate-fade-in-up">
+            <p key={`text-${currentIndex}`} className="text-white/90 text-lg md:text-xl leading-relaxed text-center mb-8 italic animate-fade-in-up">
               "{testimonials[currentIndex].text}"
             </p>
 
             {/* Customer Info */}
             <div key={`name-${currentIndex}`} className="text-center animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <p className="text-[#1A1A1A] font-bold text-xl">- {testimonials[currentIndex].name}</p>
+              <p className="text-[#FFC107] font-bold text-xl">- {testimonials[currentIndex].name}</p>
             </div>
           </div>
 
@@ -116,14 +123,14 @@ export function TestimonialsSection() {
           }`}>
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full bg-[#1A1A1A] text-white hover:bg-[#FFC107] hover:text-[#1A1A1A] hover:scale-110 transition-all duration-300 flex items-center justify-center"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFC107] to-[#E5AC00] text-[#1A1A1A] hover:scale-125 hover:rotate-12 transition-all duration-300 flex items-center justify-center shadow-lg shadow-[#FFC107]/50"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full bg-[#1A1A1A] text-white hover:bg-[#FFC107] hover:text-[#1A1A1A] hover:scale-110 transition-all duration-300 flex items-center justify-center"
+              className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFC107] to-[#E5AC00] text-[#1A1A1A] hover:scale-125 hover:rotate-12 transition-all duration-300 flex items-center justify-center shadow-lg shadow-[#FFC107]/50"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />

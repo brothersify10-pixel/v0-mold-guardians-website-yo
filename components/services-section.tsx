@@ -49,17 +49,25 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-white" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-20 md:py-28 bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] relative overflow-hidden" ref={sectionRef}>
+      {/* Background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float blur-sm" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float-slow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-[#FFC107]/15 rounded-full animate-float blur-sm" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#FFC107]/25 rounded-full animate-float-slow" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div
           className={`text-center mb-16 max-w-4xl mx-auto transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Create a Healthier Home with Our Mold Removal & Remediation Services
           </h2>
-          <p className="text-[#2D2D2D] text-lg leading-relaxed">
+          <p className="text-white/80 text-lg leading-relaxed">
             With extensive experience and expert teams, MoldGuardians specializes in eliminating harmful mold from your home.
             We restore spore counts to safe levels, ensuring your living space is healthy once more.
           </p>
@@ -88,7 +96,7 @@ export function ServicesSection() {
               </div>
 
               {/* Title with animation */}
-              <h3 className="text-2xl font-bold text-[#1A1A1A] uppercase tracking-wide group-hover:text-[#FFC107] transition-all duration-300 group-hover:scale-110">
+              <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-[#FFC107] transition-all duration-300 group-hover:scale-110">
                 {service.title}
               </h3>
 
