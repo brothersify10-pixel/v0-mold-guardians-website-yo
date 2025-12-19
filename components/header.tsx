@@ -37,17 +37,19 @@ export function Header({ onBookInspection }: HeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[#2D2D2D] hover:text-[#FFC107] transition-colors font-semibold"
+                className="text-[#2D2D2D] hover:text-[#FFC107] transition-all duration-300 font-semibold hover:scale-110 relative group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFC107] group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
             <button
-              className="text-[#2D2D2D] hover:text-[#FFC107] transition-colors"
+              className="text-[#2D2D2D] hover:text-[#FFC107] transition-all duration-300 hover:scale-110 hover:rotate-12"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
@@ -56,13 +58,13 @@ export function Header({ onBookInspection }: HeaderProps) {
 
           {/* CTA & Phone */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:1-800-555-5555" className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors">
-              <Phone className="w-4 h-4" />
+            <a href="tel:1-800-555-5555" className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-all duration-300 hover:scale-105">
+              <Phone className="w-4 h-4 animate-bounce-slow" />
               1-800-555-5555
             </a>
             <Button
               onClick={onBookInspection}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold hover:scale-105 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
             >
               Book Inspection
             </Button>

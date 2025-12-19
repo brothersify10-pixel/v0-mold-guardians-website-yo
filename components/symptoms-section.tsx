@@ -1,4 +1,31 @@
+'use client'
+
+import { useEffect, useRef, useState } from "react"
+import { AlertCircle } from "lucide-react"
+
 export function SymptomsSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   const symptoms = [
     "1. Stuffy nose or sinus pressure",
     "2. Itchy or watery eyes",
@@ -13,18 +40,27 @@ export function SymptomsSection() {
   ]
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 md:py-28 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Left Content */}
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-tight">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-tight transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}>
               TOP 10 MOLD EXPOSURE SYMPTOMS
             </h2>
 
             <div className="space-y-4">
               {symptoms.map((symptom, index) => (
-                <div key={index} className="text-[#2D2D2D] text-lg font-medium">
+                <div
+                  key={index}
+                  className={`flex items-center gap-3 text-[#2D2D2D] text-lg font-medium p-3 rounded-lg hover:bg-[#FFC107]/10 hover:translate-x-2 transition-all duration-300 ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 80 + 200}ms` }}
+                >
+                  <AlertCircle className="w-5 h-5 text-[#FFC107] flex-shrink-0" />
                   {symptom}
                 </div>
               ))}
@@ -33,7 +69,9 @@ export function SymptomsSection() {
 
           {/* Right Image */}
           <div
-            className="h-[400px] md:h-[500px] rounded-2xl bg-cover bg-center border-[5px] border-[#FFC107] shadow-xl"
+            className={`h-[400px] md:h-[500px] rounded-2xl bg-cover bg-center border-[5px] border-[#FFC107] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+            }`}
             style={{
               backgroundImage: "url('https://images.pexels.com/photos/1893229/pexels-photo-1893229.jpeg?auto=compress&cs=tinysrgb&w=800')",
             }}
