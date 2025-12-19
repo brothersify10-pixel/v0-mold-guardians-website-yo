@@ -20,13 +20,13 @@ export function CTABanner({ onBookInspection }: CTABannerProps) {
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Large Phone Number */}
           <a
-            href="tel:1-800-555-5555"
+            href="tel:1800-730-3183"
             className="block group transition-transform hover:scale-105"
           >
             <div className="flex items-center justify-center gap-4 mb-4">
               <Phone className="w-16 h-16 md:w-20 md:h-20 text-[#FFC107]" />
               <p className="text-5xl md:text-6xl lg:text-7xl font-black text-[#FFC107] tracking-tight">
-                1-800-555-5555
+                1800-730-3183
               </p>
             </div>
           </a>

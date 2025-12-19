@@ -58,9 +58,9 @@ export function Header({ onBookInspection }: HeaderProps) {
 
           {/* CTA & Phone */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:1-800-555-5555" className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-all duration-300 hover:scale-105">
+            <a href="tel:1800-730-3183" className="flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-all duration-300 hover:scale-105">
               <Phone className="w-4 h-4 animate-bounce-slow" />
-              1-800-555-5555
+              1800-730-3183
             </a>
             <Button
               onClick={onBookInspection}
@@ -94,9 +94,9 @@ export function Header({ onBookInspection }: HeaderProps) {
                   {link.label}
                 </a>
               ))}
-              <a href="tel:1-800-555-5555" className="flex items-center gap-2 text-primary font-semibold py-2">
+              <a href="tel:1800-730-3183" className="flex items-center gap-2 text-primary font-semibold py-2">
                 <Phone className="w-4 h-4" />
-                1-800-555-5555
+                1800-730-3183
               </a>
               <Button
                 onClick={() => {

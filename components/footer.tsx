@@ -32,11 +32,11 @@ export function Footer() {
             <h3 className="text-[#FFC107] text-xl font-bold uppercase mb-4">Contact</h3>
             <div className="space-y-4">
               <a
-                href="tel:1-800-555-5555"
+                href="tel:1800-730-3183"
                 className="flex items-center gap-3 text-gray-300 hover:text-[#FFC107] transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                <span>1-800-555-5555</span>
+                <span>1800-730-3183</span>
               </a>
               <a
                 href="mailto:info@moldguardians.com"
