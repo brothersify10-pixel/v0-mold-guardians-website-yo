@@ -60,13 +60,8 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="py-20 md:py-28 relative"
+      className="py-20 md:py-28 relative bg-[#F5F5F5]"
       ref={sectionRef}
-      style={{
-        backgroundImage: 'linear-gradient(rgba(245,245,245,0.95), rgba(245,245,245,0.95)), url(https://images.pexels.com/photos/3178818/pexels-photo-3178818.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 transition-all duration-700 ${

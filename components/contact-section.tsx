@@ -30,13 +30,8 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-32 relative"
+      className="py-20 md:py-32 relative bg-white"
       ref={sectionRef}
-      style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url(https://images.pexels.com/photos/8031873/pexels-photo-8031873.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center space-y-8">

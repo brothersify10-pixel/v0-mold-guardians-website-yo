@@ -40,12 +40,19 @@ export function SymptomsSection() {
   ]
 
   return (
-    <section className="py-20 md:py-28 bg-white" ref={sectionRef}>
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] relative overflow-hidden" ref={sectionRef}>
+      {/* Background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float blur-sm" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float-slow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-[#FFC107]/15 rounded-full animate-float blur-sm" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Left Content */}
           <div className="space-y-8">
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] leading-tight transition-all duration-700 ${
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
               TOP 10 MOLD EXPOSURE SYMPTOMS
@@ -55,7 +62,7 @@ export function SymptomsSection() {
               {symptoms.map((symptom, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-3 text-[#2D2D2D] text-lg font-medium p-3 rounded-lg hover:bg-[#FFC107]/10 hover:translate-x-2 transition-all duration-300 ${
+                  className={`flex items-center gap-3 text-white/90 text-lg font-medium p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-[#FFC107]/20 hover:border-[#FFC107]/50 hover:translate-x-2 transition-all duration-300 ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
                   }`}
                   style={{ transitionDelay: `${index * 80 + 200}ms` }}
@@ -69,7 +76,7 @@ export function SymptomsSection() {
 
           {/* Right Image */}
           <div
-            className={`h-[400px] md:h-[500px] rounded-2xl bg-cover bg-center border-[5px] border-[#FFC107] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-700 ${
+            className={`h-[400px] md:h-[500px] rounded-2xl bg-cover bg-center border-[5px] border-[#FFC107] shadow-xl shadow-[#FFC107]/20 hover:shadow-2xl hover:shadow-[#FFC107]/40 hover:scale-105 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
             style={{
