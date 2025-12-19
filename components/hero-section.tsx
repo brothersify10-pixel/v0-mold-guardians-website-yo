@@ -16,12 +16,20 @@ export function HeroSection({ onBookInspection }: HeroSectionProps) {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Animated background particles */}
+      {/* Animated background particles - More particles for better motion */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
         <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float-slow" style={{ animationDelay: '1s' }}></div>
         <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#FFC107]/40 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-[#FFC107]/25 rounded-full animate-float-slow" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-1/2 left-1/6 w-2 h-2 bg-[#FFC107]/35 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-2/3 right-1/5 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float-slow" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute bottom-1/2 left-2/3 w-3 h-3 bg-[#FFC107]/25 rounded-full animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-3/4 right-2/3 w-2 h-2 bg-[#FFC107]/20 rounded-full animate-float-slow" style={{ animationDelay: '1.8s' }}></div>
+
+        {/* Larger floating elements */}
+        <div className="absolute top-1/5 right-1/6 w-4 h-4 bg-[#FFC107]/15 rounded-full animate-float-slow blur-sm" style={{ animationDelay: '0.3s' }}></div>
+        <div className="absolute bottom-1/5 left-1/5 w-5 h-5 bg-[#FFC107]/10 rounded-full animate-float blur-sm" style={{ animationDelay: '2.2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -59,10 +67,14 @@ export function HeroSection({ onBookInspection }: HeroSectionProps) {
                 {/* Star burst effect */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative w-64 h-64 md:w-72 md:h-72">
+                    {/* Pulsing outer glow rings */}
+                    <div className="absolute inset-0 bg-[#FFC107]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0s' }} />
+                    <div className="absolute inset-0 bg-[#FFC107]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', transform: 'scale(1.2)' }} />
+
                     {/* Black circle with border */}
-                    <div className="absolute inset-0 bg-[#1A1A1A] rounded-full border-8 border-[#FFC107] shadow-2xl flex items-center justify-center p-8 hover:scale-105 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-[#1A1A1A] rounded-full border-8 border-[#FFC107] shadow-2xl flex items-center justify-center p-8 hover:scale-110 hover:rotate-3 transition-all duration-500 animate-glow cursor-pointer">
                       <div className="text-center space-y-2">
-                        <p className="text-[#FFC107] font-black text-3xl md:text-4xl leading-tight">
+                        <p className="text-[#FFC107] font-black text-3xl md:text-4xl leading-tight animate-pulse-slow">
                           GET 50% OFF
                         </p>
                         <p className="text-white font-bold text-xl md:text-2xl leading-tight">
@@ -77,8 +89,9 @@ export function HeroSection({ onBookInspection }: HeroSectionProps) {
                     {/* Rotating glow effect */}
                     <div className="absolute inset-0 bg-[#FFC107]/20 rounded-full blur-2xl animate-pulse" />
 
-                    {/* Additional rotating ring */}
-                    <div className="absolute inset-0 rounded-full border-2 border-[#FFC107]/30 animate-rotate" style={{ borderStyle: 'dashed' }} />
+                    {/* Multiple rotating rings */}
+                    <div className="absolute inset-0 rounded-full border-2 border-[#FFC107]/30 animate-rotate" style={{ borderStyle: 'dashed', animationDuration: '20s' }} />
+                    <div className="absolute inset-0 rounded-full border-2 border-[#FFC107]/20 animate-rotate" style={{ borderStyle: 'dotted', animationDuration: '15s', animationDirection: 'reverse' }} />
                   </div>
                 </div>
               </div>

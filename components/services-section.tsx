@@ -69,23 +69,31 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group flex flex-col items-center text-center space-y-4 transition-all duration-700 ${
+              className={`group flex flex-col items-center text-center space-y-4 transition-all duration-700 hover:-translate-y-4 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Circular Image Container */}
-              <div
-                className="circle-image cursor-pointer hover:animate-pulse"
-                style={{
-                  backgroundImage: `url(${service.image})`
-                }}
-              />
+              {/* Circular Image Container with glow */}
+              <div className="relative">
+                {/* Glow effect behind image */}
+                <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/20 rounded-full blur-xl transition-all duration-500 transform scale-110" />
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-[#1A1A1A] uppercase tracking-wide group-hover:text-[#FFC107] transition-colors duration-300">
+                <div
+                  className="circle-image cursor-pointer relative z-10 group-hover:shadow-2xl group-hover:shadow-[#FFC107]/50"
+                  style={{
+                    backgroundImage: `url(${service.image})`
+                  }}
+                />
+              </div>
+
+              {/* Title with animation */}
+              <h3 className="text-2xl font-bold text-[#1A1A1A] uppercase tracking-wide group-hover:text-[#FFC107] transition-all duration-300 group-hover:scale-110">
                 {service.title}
               </h3>
+
+              {/* Decorative underline */}
+              <div className="w-0 h-1 bg-[#FFC107] group-hover:w-full transition-all duration-500" />
             </div>
           ))}
         </div>

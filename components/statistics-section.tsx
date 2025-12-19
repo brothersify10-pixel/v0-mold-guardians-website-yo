@@ -60,11 +60,15 @@ export function StatisticsSection() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full blur-3xl animate-pulse" />
       </div>
 
-      {/* Floating particles */}
+      {/* Floating particles - Enhanced */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-primary/20 rounded-full animate-float-slow" style={{ animationDelay: '0s' }}></div>
         <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-primary/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
         <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary/25 rounded-full animate-float-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-primary/20 rounded-full animate-float-slow" style={{ animationDelay: '0.8s' }}></div>
+        <div className="absolute top-2/3 right-1/5 w-4 h-4 bg-primary/10 rounded-full animate-float blur-sm" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute bottom-1/5 left-2/3 w-3 h-3 bg-primary/15 rounded-full animate-float-slow" style={{ animationDelay: '1.2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -97,15 +101,20 @@ export function StatisticsSection() {
           {trustElements.map((element, index) => (
             <div
               key={index}
-              className={`text-center p-6 bg-charcoal rounded-2xl border border-border hover:border-primary/50 hover:scale-105 transition-all duration-500 ${
+              className={`group text-center p-6 bg-charcoal rounded-2xl border border-border hover:border-primary/50 hover:scale-110 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 cursor-pointer ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${(index + 2) * 150}ms` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 hover:rotate-12 transition-transform duration-300">
-                <element.icon className="w-7 h-7 text-primary" />
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 rounded-xl blur-xl transition-all duration-500" />
+
+                <div className="relative w-14 h-14 rounded-xl bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 group-hover:scale-125 transition-all duration-300">
+                  <element.icon className="w-7 h-7 text-primary group-hover:animate-pulse-slow" />
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">{element.title}</h3>
+              <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">{element.title}</h3>
               <p className="text-muted-foreground text-sm">{element.description}</p>
             </div>
           ))}
