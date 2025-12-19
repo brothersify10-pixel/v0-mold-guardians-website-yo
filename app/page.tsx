@@ -4,7 +4,6 @@ import { useState } from "react"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
-import { WhatIsMoldSection } from "@/components/what-is-mold-section"
 import { ContactSection } from "@/components/contact-section"
 import { WhyHireUsSection } from "@/components/why-hire-us-section"
 import { StatisticsSection } from "@/components/statistics-section"
@@ -26,11 +25,10 @@ export default function Home() {
       <Header onBookInspection={openBookingModal} />
       <HeroSection onBookInspection={openBookingModal} />
       <ServicesSection />
-      <WhyHireUsSection />
-      <WhatIsMoldSection />
       <SymptomsSection />
       <ContactSection />
       <StatisticsSection />
+      <WhyHireUsSection />
       <ProtectFamilySection />
       <TestimonialsSection />
       <CTABanner onBookInspection={openBookingModal} />
