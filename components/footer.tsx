@@ -87,7 +87,7 @@ export function Footer() {
               <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/20 rounded-lg blur-xl transition-all duration-500" />
 
               <Image
-                src="/bottom-logo.jpeg"
+                src="/bottom-remove.png"
                 alt="MoldGuardians Logo"
                 width={200}
                 height={70}
