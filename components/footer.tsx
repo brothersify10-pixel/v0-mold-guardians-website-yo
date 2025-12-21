@@ -83,7 +83,7 @@ export function Footer() {
           {/* Column 4 - Logo & Social */}
           <div className="space-y-6">
             <Image
-              src="/botom-logo.jpeg"
+              src="/bottom-logo.jpeg"
               alt="MoldGuardians Logo"
               width={200}
               height={70}
