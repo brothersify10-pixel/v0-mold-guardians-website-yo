@@ -54,21 +54,19 @@ export function StatisticsSection() {
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-background relative overflow-hidden" ref={sectionRef}>
-      {/* Background Glow */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full blur-3xl animate-pulse" />
-      </div>
-
-      {/* Floating particles - Enhanced */}
+    <section className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A]" ref={sectionRef}>
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-primary/20 rounded-full animate-float-slow" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-primary/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary/25 rounded-full animate-float-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary/15 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-primary/20 rounded-full animate-float-slow" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute top-2/3 right-1/5 w-4 h-4 bg-primary/10 rounded-full animate-float blur-sm" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-1/5 left-2/3 w-3 h-3 bg-primary/15 rounded-full animate-float-slow" style={{ animationDelay: '1.2s' }}></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#FFC107] rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-[#FFC107]/50 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float"></div>
+        <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-[#FFC107] rounded-full animate-float-slow"></div>
+        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#FFC107]/40 rounded-full animate-float blur-sm"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-[#FFC107]/35 rounded-full animate-float-slow"></div>
+
+        {/* Gradient orbs for ambient glow */}
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-[#FFC107]/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -86,10 +84,10 @@ export function StatisticsSection() {
             <p className="text-6xl md:text-8xl lg:text-9xl font-black text-primary leading-none animate-shimmer">
               {count} OUT OF 10
             </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mt-4">HOUSEHOLDS HAVE MOLD</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4">HOUSEHOLDS HAVE MOLD</p>
           </div>
 
-          <p className={`text-muted-foreground text-lg max-w-2xl mx-auto transition-all duration-1000 delay-300 ${
+          <p className={`text-white/80 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Mold can be hidden in places you'd never expect. Don't wait until it becomes a serious problem.
@@ -97,11 +95,11 @@ export function StatisticsSection() {
         </div>
 
         {/* Trust Elements */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {trustElements.map((element, index) => (
             <div
               key={index}
-              className={`group text-center p-6 bg-charcoal rounded-2xl border border-border hover:border-primary/50 hover:scale-110 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 cursor-pointer ${
+              className={`group text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#FFC107]/50 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#FFC107]/50 hover:scale-105 transition-all duration-500 cursor-pointer ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${(index + 2) * 150}ms` }}
@@ -114,8 +112,8 @@ export function StatisticsSection() {
                   <element.icon className="w-7 h-7 text-primary group-hover:animate-pulse-slow" />
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">{element.title}</h3>
-              <p className="text-muted-foreground text-sm">{element.description}</p>
+              <h3 className="text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors duration-300">{element.title}</h3>
+              <p className="text-white/90 text-sm">{element.description}</p>
             </div>
           ))}
         </div>

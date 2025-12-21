@@ -60,7 +60,7 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="py-20 md:py-28 relative bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] overflow-hidden"
+      className="py-24 md:py-32 relative bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] overflow-hidden"
       ref={sectionRef}
     >
       {/* Background particles */}

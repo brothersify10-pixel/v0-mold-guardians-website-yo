@@ -33,21 +33,21 @@ export function CTABanner({ onBookInspection }: CTABannerProps) {
 
   return (
     <section
-      className="py-24 md:py-32 relative parallax overflow-hidden"
+      className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A]"
       ref={sectionRef}
-      style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(https://images.pexels.com/photos/5353875/pexels-photo-5353875.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
     >
-      {/* Animated particles */}
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float-slow" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#FFC107]/25 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float-slow" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#FFC107] rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-[#FFC107]/50 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-[#FFC107]/30 rounded-full animate-float"></div>
+        <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-[#FFC107] rounded-full animate-float-slow"></div>
+        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#FFC107]/40 rounded-full animate-float blur-sm"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-[#FFC107]/35 rounded-full animate-float-slow"></div>
+
+        {/* Gradient orbs for ambient glow */}
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-[#FFC107]/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#FFC107]/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -60,8 +60,8 @@ export function CTABanner({ onBookInspection }: CTABannerProps) {
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
-              <Phone className="w-16 h-16 md:w-20 md:h-20 text-[#FFC107] group-hover:rotate-12 group-hover:scale-110 transition-all duration-300 animate-swing" />
-              <p className="text-5xl md:text-6xl lg:text-7xl font-black text-[#FFC107] tracking-tight group-hover:scale-110 transition-transform duration-300 animate-glow">
+              <Phone className="w-16 h-16 md:w-20 md:h-20 text-[#FFC107] group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
+              <p className="text-5xl md:text-6xl lg:text-7xl font-black text-[#FFC107] tracking-tight group-hover:scale-110 transition-transform duration-300">
                 1800-730-3183
               </p>
             </div>
@@ -81,7 +81,7 @@ export function CTABanner({ onBookInspection }: CTABannerProps) {
             <Button
               onClick={onBookInspection}
               size="lg"
-              className="bg-[#FFC107] text-[#1A1A1A] hover:bg-[#E5AC00] hover:scale-110 hover:shadow-2xl hover:shadow-[#FFC107]/50 font-bold text-lg px-12 py-8 text-xl mt-8 transition-all duration-300 animate-pulse-slow"
+              className="bg-[#FFC107] text-[#1A1A1A] hover:bg-[#E5AC00] hover:scale-110 hover:shadow-2xl hover:shadow-[#FFC107]/50 font-bold text-xl px-12 py-8 mt-8 group transition-all duration-500"
             >
               SCHEDULE INSPECTION
             </Button>

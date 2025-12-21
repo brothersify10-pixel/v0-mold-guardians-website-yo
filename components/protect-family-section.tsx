@@ -34,7 +34,7 @@ export function ProtectFamilySection() {
   ]
 
   return (
-    <section className="relative bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] py-20 md:py-28 overflow-hidden" ref={sectionRef}>
+    <section className="relative bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] py-24 md:py-32 overflow-hidden" ref={sectionRef}>
       {/* Background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#FFC107]/20 rounded-full animate-float blur-sm" style={{ animationDelay: '0s' }}></div>

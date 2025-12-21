@@ -33,9 +33,9 @@ export function HeroSection({ onBookInspection }: HeroSectionProps) {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col items-center justify-center gap-12">
           {/* Left Content */}
-          <div className="flex-1 text-center lg:text-left space-y-6 max-w-2xl">
+          <div className="flex-1 text-center space-y-6 max-w-2xl">
             <div className="inline-block animate-fade-in-down" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <p className="text-[#FFC107] text-sm font-semibold uppercase tracking-widest">
                 Residential Services
@@ -51,7 +51,7 @@ export function HeroSection({ onBookInspection }: HeroSectionProps) {
               <Button
                 onClick={onBookInspection}
                 size="lg"
-                className="bg-[#FFC107] text-[#1A1A1A] hover:bg-[#FFC107]/90 hover:scale-105 font-bold text-lg px-10 py-7 group transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFC107]/50"
+                className="bg-[#FFC107] text-[#1A1A1A] hover:bg-[#E5AC00] hover:scale-110 font-bold text-xl px-12 py-8 group transition-all duration-500 hover:shadow-2xl hover:shadow-[#FFC107]/50"
               >
                 BOOK INSPECTION
                 <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
