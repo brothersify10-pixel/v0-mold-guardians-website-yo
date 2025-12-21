@@ -82,13 +82,18 @@ export function Footer() {
 
           {/* Column 4 - Logo & Social */}
           <div className="space-y-6">
-            <Image
-              src="/bottom-logo.jpeg"
-              alt="MoldGuardians Logo"
-              width={200}
-              height={70}
-              className="h-16 w-auto object-contain"
-            />
+            <div className="relative group">
+              {/* Glow effect behind logo */}
+              <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/20 rounded-lg blur-xl transition-all duration-500" />
+
+              <Image
+                src="/bottom-logo.jpeg"
+                alt="MoldGuardians Logo"
+                width={200}
+                height={70}
+                className="h-16 w-auto object-contain relative z-10 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 rounded-lg mix-blend-lighten"
+              />
+            </div>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
