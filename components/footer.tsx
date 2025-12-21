@@ -84,15 +84,17 @@ export function Footer() {
           <div className="space-y-6">
             <div className="relative group">
               {/* Glow effect behind logo */}
-              <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/20 rounded-lg blur-xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/30 rounded-lg blur-xl transition-all duration-500" />
 
-              <Image
-                src="/bottom-remove.png"
-                alt="MoldGuardians Logo"
-                width={200}
-                height={70}
-                className="h-16 w-auto object-contain relative z-10 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 rounded-lg mix-blend-lighten"
-              />
+              <div className="bg-white rounded-lg p-3 inline-block relative z-10 group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-[#FFC107]/50">
+                <Image
+                  src="/bottom-remove.png"
+                  alt="MoldGuardians Logo"
+                  width={200}
+                  height={70}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
             </div>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
