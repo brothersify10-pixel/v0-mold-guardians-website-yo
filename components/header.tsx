@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Phone, Menu, X, Search } from "lucide-react"
+import { Phone, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -13,10 +13,10 @@ export function Header({ onBookInspection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinks = [
-    { href: "#", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#quote", label: "Quote" },
-    { href: "#about", label: "About" },
+    { href: "#", label: "Home", onClick: null },
+    { href: "#services", label: "Services", onClick: null },
+    { href: "#quote", label: "Quote", onClick: onBookInspection },
+    { href: "#about", label: "About", onClick: null },
   ]
 
   return (
@@ -51,22 +51,28 @@ export function Header({ onBookInspection }: HeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white hover:text-[#FFC107] transition-all duration-300 font-semibold hover:scale-110 relative group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFC107] group-hover:w-full transition-all duration-300"></span>
-              </a>
+              link.onClick ? (
+                <button
+                  key={link.label}
+                  onClick={link.onClick}
+                  className="text-white hover:text-[#FFC107] transition-all duration-300 font-semibold hover:scale-110 relative group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFC107] group-hover:w-full transition-all duration-300"></span>
+                </button>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-white hover:text-[#FFC107] transition-all duration-300 font-semibold hover:scale-110 relative group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFC107] group-hover:w-full transition-all duration-300"></span>
+                </a>
+              )
             ))}
-            <button
-              className="text-white hover:text-[#FFC107] transition-all duration-300 hover:scale-110 hover:rotate-12"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
           </nav>
 
           {/* CTA & Phone */}
@@ -98,14 +104,27 @@ export function Header({ onBookInspection }: HeaderProps) {
           <nav className="md:hidden py-4 border-t border-[#FFC107]/20">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-white hover:text-[#FFC107] transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
+                link.onClick ? (
+                  <button
+                    key={link.label}
+                    onClick={() => {
+                      link.onClick()
+                      setIsMenuOpen(false)
+                    }}
+                    className="text-white hover:text-[#FFC107] transition-colors font-medium py-2 text-left"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-white hover:text-[#FFC107] transition-colors font-medium py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <a href="tel:1800-730-3183" className="flex items-center gap-2 text-[#FFC107] font-bold py-2">
                 <Phone className="w-4 h-4" />
