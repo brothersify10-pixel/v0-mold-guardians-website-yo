@@ -86,7 +86,7 @@ export function Footer() {
               {/* Glow effect behind logo */}
               <div className="absolute inset-0 bg-[#FFC107]/0 group-hover:bg-[#FFC107]/30 rounded-lg blur-xl transition-all duration-500" />
 
-              <div className="bg-white rounded-lg p-4 inline-block relative z-10 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-[#FFC107]/50 overflow-hidden">
+              <div className="bg-white rounded-lg p-3 inline-block relative z-10 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:shadow-[#FFC107]/50 overflow-hidden">
                 <Image
                   src="/bottom-remove.png"
                   alt="MoldGuardians Logo"
